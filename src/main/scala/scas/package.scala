@@ -12,7 +12,7 @@ package object scas {
   val ModInteger = base.ModInteger
   lazy val Rational = base.Rational
   lazy val frac = base.Rational
-  lazy val I = base.Complex.I
+  lazy val I = base.Complex.generators(0)
   val Lexicographic = polynomial.ordering.Lexicographic
   val DegreeLexicographic = polynomial.ordering.DegreeLexicographic
   val DegreeReverseLexicographic = polynomial.ordering.DegreeReverseLexicographic

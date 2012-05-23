@@ -147,15 +147,18 @@ object MyApp extends App {
   }
 
   def complex = {
-    import Implicits.{QQ, CC}
+    import Implicits.CC
     assert ((1+I)/(1-I) >< I)
   }
 
   def an = {
     import Implicits.{QQ, coef2algebraicNumber}
-    implicit val r = AlgebraicNumber(QQ, "x")
+    implicit val r = {
+      implicit val r = AlgebraicNumber(QQ, "x")
+      val Array(x) = r.generators
+      AlgebraicNumber(2 - pow(x, 2))
+    }
     val Array(x) = r.generators
-    r.update(2 - pow(x, 2))
     assert (2 >< pow(x, 2))
     assert (Rational(2) - pow(x, 2) >< 0)
     assert (r.toString == "QQ(2-pow(x, 2))")
