@@ -7,7 +7,7 @@ Software needed:
 
 
 To build scas:
-  sbt package macros/package
+  sbt -Dscala_home=$SCALA_HOME package macros/package
   jarlister target/scala-2.11/scas_2.11-2.1.jar
 
 

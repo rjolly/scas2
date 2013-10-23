@@ -12,8 +12,8 @@ trait Ordering[@specialized(Byte, Short, Int, Long, Double) T] extends Comparato
   def compare(x: T, y: T): Int
   override def lteq(x: T, y: T): Boolean = compare(x, y) <= 0
   override def gteq(x: T, y: T): Boolean = compare(x, y) >= 0
-  override def lt(x: T, y: T): Boolean = compare(x, y) < 0
-  override def gt(x: T, y: T): Boolean = compare(x, y) > 0
+  @inline final override def lt(x: T, y: T): Boolean = compare(x, y) < 0
+  @inline final override def gt(x: T, y: T): Boolean = compare(x, y) > 0
   override def equiv(x: T, y: T): Boolean = compare(x, y) == 0
   def max(x: T, y: T): T = if (gteq(x, y)) x else y
   def min(x: T, y: T): T = if (lteq(x, y)) x else y
@@ -70,9 +70,6 @@ object Ordering extends LowPriorityOrderingImplicits {
 
   trait ByteOrdering extends Ordering[Byte] {
     def compare(x: Byte, y: Byte) = x.toInt - y.toInt
-
-    override def lt(x: Byte, y: Byte) = x < y
-    override def gt(x: Byte, y: Byte) = x > y
   }
   implicit object Byte extends ByteOrdering
 
@@ -83,9 +80,6 @@ object Ordering extends LowPriorityOrderingImplicits {
 
   trait ShortOrdering extends Ordering[Short] {
     def compare(x: Short, y: Short) = x.toInt - y.toInt
-
-    override def lt(x: Short, y: Short) = x < y
-    override def gt(x: Short, y: Short) = x > y
   }
   implicit object Short extends ShortOrdering
 
@@ -94,9 +88,6 @@ object Ordering extends LowPriorityOrderingImplicits {
       if (x < y) -1
       else if (x == y) 0
       else 1
-
-    override def lt(x: Int, y: Int) = x < y
-    override def gt(x: Int, y: Int) = x > y
   }
   implicit object Int extends IntOrdering
 
@@ -105,9 +96,6 @@ object Ordering extends LowPriorityOrderingImplicits {
       if (x < y) -1
       else if (x == y) 0
       else 1
-
-    override def lt(x: Long, y: Long) = x < y
-    override def gt(x: Long, y: Long) = x > y
   }
   implicit object Long extends LongOrdering
 
@@ -118,8 +106,6 @@ object Ordering extends LowPriorityOrderingImplicits {
 
     override def lteq(x: Float, y: Float): Boolean = x <= y
     override def gteq(x: Float, y: Float): Boolean = x >= y
-    override def lt(x: Float, y: Float): Boolean = x < y
-    override def gt(x: Float, y: Float): Boolean = x > y
     override def equiv(x: Float, y: Float): Boolean = x == y
     override def max(x: Float, y: Float): Float = math.max(x, y)
     override def min(x: Float, y: Float): Float = math.min(x, y)
@@ -130,8 +116,6 @@ object Ordering extends LowPriorityOrderingImplicits {
 
       override def lteq(x: Float, y: Float): Boolean = outer.lteq(y, x)
       override def gteq(x: Float, y: Float): Boolean = outer.gteq(y, x)
-      override def lt(x: Float, y: Float): Boolean = outer.lt(y, x)
-      override def gt(x: Float, y: Float): Boolean = outer.gt(y, x)
     }
   }
   implicit object Float extends FloatOrdering
@@ -143,8 +127,6 @@ object Ordering extends LowPriorityOrderingImplicits {
 
     override def lteq(x: Double, y: Double): Boolean = x <= y
     override def gteq(x: Double, y: Double): Boolean = x >= y
-    override def lt(x: Double, y: Double): Boolean = x < y
-    override def gt(x: Double, y: Double): Boolean = x > y
     override def equiv(x: Double, y: Double): Boolean = x == y
     override def max(x: Double, y: Double): Double = math.max(x, y)
     override def min(x: Double, y: Double): Double = math.min(x, y)
@@ -155,8 +137,6 @@ object Ordering extends LowPriorityOrderingImplicits {
 
       override def lteq(x: Double, y: Double): Boolean = outer.lteq(y, x)
       override def gteq(x: Double, y: Double): Boolean = outer.gteq(y, x)
-      override def lt(x: Double, y: Double): Boolean = outer.lt(y, x)
-      override def gt(x: Double, y: Double): Boolean = outer.gt(y, x)
     }
   }
   implicit object Double extends DoubleOrdering

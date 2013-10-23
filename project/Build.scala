@@ -6,7 +6,9 @@ object BuildSettings {
     organization := "scas",
     version := "2.1",
     scalaVersion := "2.11.0-M4",
+    scalaHome := Some(file(sys.props("scala_home"))),
     scalacOptions ++= Seq(
+      "-Ybackend:o2",
       "-language:higherKinds",
       "-language:implicitConversions",
       "-language:postfixOps",

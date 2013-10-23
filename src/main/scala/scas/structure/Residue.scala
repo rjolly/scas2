@@ -34,17 +34,17 @@ trait Residue[@specialized(Int, Long) T, @specialized(Int, Long) R] extends Uniq
     val self(a) = x
     ring.signum(a)
   }
-  def plus(x: T, y: T) = {
+  @inline final def plus(x: T, y: T) = {
     val self(a) = x
     val self(b) = y
     reduce(a + b)
   }
-  def minus(x: T, y: T) = {
+  @inline final def minus(x: T, y: T) = {
     val self(a) = x
     val self(b) = y
     reduce(a - b)
   }
-  def times(x: T, y: T) = {
+  @inline final def times(x: T, y: T) = {
     val self(a) = x
     val self(b) = y
     reduce(a * b)

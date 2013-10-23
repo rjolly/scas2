@@ -3,17 +3,17 @@ package spire.macros
 import scala.reflect.macros.Context
 
 object Ops {
-  def unop[R](c:Context)():c.Expr[R] = {
+  def unop[R: c.WeakTypeTag](c:Context)():c.Expr[R] = {
     import c.universe._
     val (ev, lhs) = unpack(c)
     c.Expr[R](Apply(Select(ev, findMethodName(c)), List(lhs)))
   }
-  def binop[A, R](c:Context)(rhs:c.Expr[A]):c.Expr[R] = {
+  def binop[A, R: c.WeakTypeTag](c:Context)(rhs:c.Expr[A]):c.Expr[R] = {
     import c.universe._
     val (ev, lhs) = unpack(c)
     c.Expr[R](Apply(Select(ev, findMethodName(c)), List(lhs, rhs.tree)))
   }
-  def rbinop[A, R](c:Context)(lhs:c.Expr[A]):c.Expr[R] = {
+  def rbinop[A, R: c.WeakTypeTag](c:Context)(lhs:c.Expr[A]):c.Expr[R] = {
     import c.universe._
     val (ev, rhs) = unpack(c)
     c.Expr[R](Apply(Select(ev, findMethodName(c)), List(lhs.tree, rhs)))
