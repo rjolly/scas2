@@ -6,7 +6,7 @@ package object residue {
   }
   object Implicits extends ExtraImplicits
 
-  type Complex = Residue.Element[UnivariatePolynomial.Element[Rational, Int], Rational, Int]
+  type Complex = Residue.Element[UnivariatePolynomial.Element, Rational, Int]
 
   object Complex extends ComplexLike
 

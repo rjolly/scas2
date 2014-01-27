@@ -4,7 +4,7 @@ import scas.structure.StarRingWithUFD
 import scas.{Variable, BigInteger, Rational, UnivariatePolynomial, int2bigInteger, bigInteger2rational}
 import scas.Implicits.{ZZ, QQ, coef2residue}
 
-trait ComplexLike extends AlgebraicNumber[UnivariatePolynomial.Element[Rational, Int], Rational, Int] with StarRingWithUFD[Complex] {
+trait ComplexLike extends AlgebraicNumber[UnivariatePolynomial.Element, Rational, Int] with StarRingWithUFD[Complex] {
   val ring = UnivariatePolynomial(QQ, Variable.sqrt(BigInteger(-1)))
   import ring.pp
   implicit val self = this
