@@ -1,6 +1,6 @@
-package scas.base
+package scas.application.base
 
-import scas.structure.Field
+import scas.application.structure.Field
 import scas.{int2bigInteger, Variable}
 import scas.Implicits.infixAbelianGroupOps
 

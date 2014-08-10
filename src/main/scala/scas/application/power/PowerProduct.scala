@@ -1,7 +1,8 @@
-package scas.power.growable
+package scas.application.power
 
 import scala.reflect.ClassTag
 import scas.Variable
+import scas.application.structure.ordered.Monoid
 import scas.math.Numeric
 
 trait PowerProduct[@specialized(Byte, Short, Int, Long) N] extends scas.power.PowerProduct[N] {

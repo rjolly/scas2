@@ -1,4 +1,4 @@
-package scas.power.growable
+package scas.application.power
 
 import scas.math.Numeric
 import Numeric.Implicits.infixNumericOps

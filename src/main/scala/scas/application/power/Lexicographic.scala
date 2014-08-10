@@ -1,4 +1,4 @@
-package scas.power.growable
+package scas.applciation.power
 
 import scala.reflect.ClassTag
 import scas.Variable
