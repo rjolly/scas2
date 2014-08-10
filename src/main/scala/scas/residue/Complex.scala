@@ -6,7 +6,7 @@ import scas.Implicits.{ZZ, QQ, infixRingOps, coef2residue}
 
 trait ComplexLike extends AlgebraicNumber[UnivariatePolynomial.Element[Rational, Int], Rational, Int] with StarRingWithUFD[Complex] {
   implicit val self = this
-  implicit val ring = UnivariatePolynomial(QQ, Variable.sqrt(BigInteger(-1))(ZZ))
+  implicit val ring = UnivariatePolynomial(QQ, Variable.sqrt(BigInteger(-1)))
   import ring.pp
   update(1 + pow(sqrt(-1), 2))
   def sqrt(x: Complex) = { assert (x >< -1) ; generator(0) }

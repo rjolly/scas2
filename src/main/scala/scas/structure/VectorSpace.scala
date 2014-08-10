@@ -6,7 +6,7 @@ import scas.Implicits.infixVectorOps
 trait VectorSpace[T, R] extends Module[T, R] {
   implicit def self: VectorSpace[T, R]
   implicit def ring: Field[R]
-  def rdivide(x: T, y: R) = ltimes(ring.inverse(y), x)
+  def rdivide(x: T, y: R) = ring.inverse(y) *: x
 }
 
 object VectorSpace {

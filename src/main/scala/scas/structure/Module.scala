@@ -8,7 +8,7 @@ trait Module[T, R] extends AbelianGroup[T] {
   implicit def self: Module[T, R]
   implicit def ring: Ring[R]
   def ltimes(x: R, y: T): T
-  def rtimes(x: T, y: R) = ltimes(y, x)
+  def rtimes(x: T, y: R) = y *: x
   def scalar(lhs: R) = new Scalar(lhs)(this)
 }
 
