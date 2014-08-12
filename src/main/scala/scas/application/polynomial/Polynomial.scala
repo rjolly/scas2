@@ -1,4 +1,4 @@
-package scas.polynomial
+package scas.application.polynomial
 
 import scas.polynomial.ufd.PolynomialOverUFD
 import scas.polynomial.ufd.gb.PolynomialWithGB

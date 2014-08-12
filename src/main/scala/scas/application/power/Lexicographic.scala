@@ -1,4 +1,4 @@
-package scas.applciation.power
+package scas.application.power
 
 import scala.reflect.ClassTag
 import scas.Variable
