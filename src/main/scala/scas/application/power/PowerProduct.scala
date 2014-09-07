@@ -1,13 +1,14 @@
 package scas.application.power
 
 import scala.reflect.ClassTag
-import scas.Variable
+import scas.{Variable, long2bigInteger}
 import scas.application.Function
 import scas.application.structure.ordered.Monoid
 import scas.math.Numeric
 import Function.identity
 
 trait PowerProduct[@specialized(Byte, Short, Int, Long) N] extends scas.power.PowerProduct[N] with Monoid[Array[N]] {
+  implicit def self: PowerProduct[N]
   import nm.toLong
   def +(variable: Variable) = instance(variables ++ Array(variable))
   def instance(variables: Array[Variable]): PowerProduct[N]

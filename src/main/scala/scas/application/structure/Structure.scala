@@ -20,6 +20,7 @@ object Structure {
   object Implicits extends ExtraImplicits
 
   trait Element[T <: Element[T]] extends scas.structure.Structure.Element[T] { this: T =>
+    val factory: Structure[T]
     def function(that: Variable) = factory.function(this, that)
   }
   trait Ops[T] extends scas.structure.Structure.Ops[T] {

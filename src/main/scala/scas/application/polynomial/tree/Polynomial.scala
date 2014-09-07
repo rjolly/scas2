@@ -4,10 +4,10 @@ import scala.reflect.ClassTag
 import scala.collection.SortedMap
 import scas.polynomial.TreePolynomial
 import scas.application.power.PowerProduct
-import scas.structure.application.UniqueFactorizationDomain
+import scas.application.structure.UniqueFactorizationDomain
 import Polynomial.Element
 
-class Polynomial[C, N](val ring: UniqueFactorizationDomain[C], val pp: PowerProduct[N])(implicit val cm: ClassTag[Element[C, N]]) extends TreePolynomial[Element[C, N], C, N] with scas.application.polynomial.Polynomial[Element[C, N], C, N] {
+class Polynomial[C, N](val ring: UniqueFactorizationDomain[C], var pp: PowerProduct[N])(implicit val cm: ClassTag[Element[C, N]]) extends TreePolynomial[Element[C, N], C, N] with scas.application.polynomial.Polynomial[Element[C, N], C, N] {
   val self = this
   def apply(value: SortedMap[Array[N], C]) = new Element(value)(this)
 }

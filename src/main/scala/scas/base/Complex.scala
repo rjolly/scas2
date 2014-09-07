@@ -1,7 +1,7 @@
 package scas.base
 
 import scas.structure.{Field, StarRingWithUFD}
-import scas.{int2bigInteger, double2complex, Variable}
+import scas.{int2bigInteger, double2complex}
 import scas.Implicits.{RR, infixStarOps, infixOps}
 
 trait ComplexLike extends StarRingWithUFD[Complex] with Field[Complex] {
@@ -41,5 +41,4 @@ trait ComplexLike extends StarRingWithUFD[Complex] with Field[Complex] {
     else <cn type="complex">{real(x)}<sep/>{imag(x)}</cn>
   }
   def toMathML = <complexes/>
-  def function(x: Complex, a: Variable) = Function(real(x))
 }

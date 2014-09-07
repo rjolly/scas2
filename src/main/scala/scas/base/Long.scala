@@ -2,7 +2,7 @@ package scas.base
 
 import scas.structure.ordered.EuclidianDomain
 import scas.Implicits.infixUFDOps
-import scas.{int2bigInteger, long2bigInteger, Variable}
+import scas.{int2bigInteger, long2bigInteger}
 
 object Long extends EuclidianDomain[Long] {
   implicit val self = this
@@ -26,5 +26,4 @@ object Long extends EuclidianDomain[Long] {
   override def toString = "ZZ"
   def toMathML(x: Long) = <cn>{x}</cn>
   def toMathML = <integers/>
-  def function(x: Long, a: Variable) = Function(x.toDouble)
 }

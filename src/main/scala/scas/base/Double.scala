@@ -1,7 +1,7 @@
 package scas.base
 
 import scas.structure.ordered.Field
-import scas.{int2bigInteger, Variable}
+import scas.int2bigInteger
 
 object Double extends Field[Double] {
   val self = this
@@ -18,5 +18,4 @@ object Double extends Field[Double] {
   override def toString = "RR"
   def toMathML(x: Double) = <cn>{x}</cn>
   def toMathML = <reals/>
-  def function(x: Double, a: Variable) = Function(x)
 }

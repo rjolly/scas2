@@ -7,11 +7,12 @@ import scas.application.structure.UniqueFactorizationDomain
 import scas.Variable
 import scas.application.Function
 import scas.Implicits.infixRingOps
-import scas.application.Implicits.R2R
+import scas.application.Implicits.{R2R, infixOps}
 import Polynomial.Element
 
 trait Polynomial[T <: Element[T, C, N], C, N] extends PolynomialWithGB[T, C, N] with UniqueFactorizationDomain[T] {
-  var pp: PowerProduct[N]
+  implicit val ring: UniqueFactorizationDomain[C]
+  implicit var pp: PowerProduct[N]
   def +=(variable: Variable): Unit = pp += variable
   def function(x: T, c: Variable) = (Function.zero /: iterator(x)) { (l, r) =>
     val (a, b) = r
