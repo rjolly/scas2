@@ -6,10 +6,11 @@ import scas.application.power.PowerProduct
 import scas.application.structure.UniqueFactorizationDomain
 import scas.Variable
 import scas.application.Function
-import scas.application.Implicits.{infixRingOps, R2R}
+import scas.Implicits.infixRingOps
+import scas.application.Implicits.R2R
 import Polynomial.Element
 
-trait Polynomial[T <: Element[T, C, N], C, N] extends PolynomialWithGB[T] with UniqueFactorizationDomain[T] {
+trait Polynomial[T <: Element[T, C, N], C, N] extends PolynomialWithGB[T, C, N] with UniqueFactorizationDomain[T] {
   var pp: PowerProduct[N]
   def +=(variable: Variable): Unit = pp += variable
   def function(x: T, c: Variable) = (Function.zero /: iterator(x)) { (l, r) =>
@@ -19,7 +20,7 @@ trait Polynomial[T <: Element[T, C, N], C, N] extends PolynomialWithGB[T] with U
 }
 
 object Polynomial {
-  trait Element[T <: Element[T, C, N], C, N] extends PolynomialOverUFD.Element[T] with UniqueFactorizationDomain.Element[T] { this: T =>
+  trait Element[T <: Element[T, C, N], C, N] extends PolynomialOverUFD.Element[T, C, N] with UniqueFactorizationDomain.Element[T] { this: T =>
     val factory: Polynomial[T, C, N]
   }
 }

@@ -1,14 +1,24 @@
-package scas.application.polynomial
+package scas.application.polynomial.tree
 
 import scala.reflect.ClassTag
-import scas.polynomial.GrowablePolynomial
-import scas.polynomial.tree.ufd.gb.PolynomialWithSugar
-import scas.power.growable.PowerProduct
-import scas.structure.UniqueFactorizationDomain
-import PolynomialWithSugar.Element
+import scala.collection.SortedMap
+import scas.polynomial.TreePolynomial
+import scas.application.power.PowerProduct
+import scas.structure.application.UniqueFactorizationDomain
+import Polynomial.Element
 
-class Polynomial[C, N](val ring: UniqueFactorizationDomain[C], var pp: PowerProduct[N])(implicit val cm: ClassTag[Element[C, N]]) extends PolynomialWithSugar[C, N] with GrowablePolynomial[Element[C, N], C, N]
+class Polynomial[C, N](val ring: UniqueFactorizationDomain[C], val pp: PowerProduct[N])(implicit val cm: ClassTag[Element[C, N]]) extends TreePolynomial[Element[C, N], C, N] with scas.application.polynomial.Polynomial[Element[C, N], C, N] {
+  val self = this
+  def apply(value: SortedMap[Array[N], C]) = new Element(value)(this)
+}
 
 object Polynomial {
   def apply[C](ring: UniqueFactorizationDomain[C]) = new Polynomial(ring, PowerProduct())
+
+  class Element[C, N](val value: SortedMap[Array[N], C])(val factory: Polynomial[C, N]) extends TreePolynomial.Element[Element[C, N], C, N] with scas.application.polynomial.Polynomial.Element[Element[C, N], C, N]
+  object Element extends ExtraImplicits
+
+  trait ExtraImplicits {
+    implicit def coef2polynomial[D, C, N](value: D)(implicit f: D => C, factory: Polynomial[C, N]) = factory(value)
+  }
 }

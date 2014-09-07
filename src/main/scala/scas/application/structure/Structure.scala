@@ -2,20 +2,20 @@ package scas.application.structure
 
 import scas.{MathObject, Variable}
 import spire.macros.Ops
-import Structure.OpsImpl
+import scas.application.Implicits.infixOps
 
-trait Structure[@specialized(Int, Long, Double) T] extends scas.structure.Structure[T] { outer =>
+trait Structure[@specialized(Int, Long, Double) T] extends scas.structure.Structure[T] {
+  implicit def self: Structure[T]
   def function(x: T, a: Variable): Double => Double
-  implicit def mkOps(lhs: T): Structure.Ops[T] = new OpsImpl(lhs)(this)
   def render(value: T): MathObject = new MathObject {
-    override def toString = toCode(value, 0)
-    def toMathML = outer.toMathML(value)
+    override def toString = value.toCode(0)
+    def toMathML = value.toMathML
   }
 }
 
 object Structure {
   trait ExtraImplicits {
-    implicit def infixOps[T: Structure](lhs: T) = implicitly[Structure[T]].mkOps(lhs)
+    implicit def infixOps[T: Structure](lhs: T) = new OpsImpl(lhs)
   }
   object Implicits extends ExtraImplicits
 
