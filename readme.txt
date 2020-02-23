@@ -2,7 +2,7 @@
 Software needed:
 
 - scala 2.11 ( http://www.scala-lang.org/ )
-- sbt 0.13.1 ( http://github.com/harrah/xsbt/ )
+- sbt 0.13.18 ( http://github.com/harrah/xsbt/ )
 - jarlister ( http://github.com/rjolly/jarlister/ )
 
   jarlister $SCALA_HOME/lib/scala-library.jar
@@ -15,5 +15,5 @@ To build scas:
 
 
 To run scas, add the bin directory to your path, give bin/scas execution privilege (unix), then:
-  scas [example.txt]
+  scas [examples/index.txt]
 
