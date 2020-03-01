@@ -6,14 +6,15 @@ Software needed:
 - jarlister ( http://github.com/rjolly/jarlister/ )
 
   jarlister $SCALA_HOME/lib/scala-library.jar
-  jarlister $SCALA_HOME/lib/scala-xml_2.11-1.0.3.jar
-  jarlister $SCALA_HOME/lib/scala-parser-combinators_2.11-1.0.2.jar
+  jarlister $SCALA_HOME/lib/scala-xml.jar
+  jarlister $SCALA_HOME/lib/scala-parser-combinators.jar
 
 To build scas:
-  sbt -Dscala.home.local=$SCALA_HOME package macros/package
-  jarlister target/scala-2.11.0-M8/scas_2.11.0-M8-2.1.jar
+  sbt package macros/package
+  jarlister target/scala-2.11.0-M6/scas_2.11.0-M6-2.1.jar
 
 
-To run scas, add the bin directory to your path, give bin/scas execution privilege (unix), then:
+To run the test suite, add the bin directory to your path, give bin/scas execution privilege (unix), then:
+  cd ../meditor/docs
   scas [examples/index.txt]
 
