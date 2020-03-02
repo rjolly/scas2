@@ -1,5 +1,5 @@
 val buildSettings = Defaults.coreDefaultSettings ++ Seq(
-  organization := "scas",
+  organization := "com.github.rjolly",
   version := "2.1",
   scalaVersion := "2.11.0-M6",
   scalacOptions ++= Seq(
