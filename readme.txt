@@ -11,7 +11,7 @@ Software needed:
 
 To build scas:
   sbt package macros/package
-  jarlister target/scala-2.11.0-M6/scas_2.11.0-M6-2.1.jar
+  jarlister target/scala-2.11.0-M6/scas_2.11.0-M6-2.1.1.jar
 
 
 To run the test suite, add the bin directory to your path, give bin/scas execution privilege (unix), then:

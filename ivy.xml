@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ivy-module version="2.0" xmlns:e="http://ant.apache.org/ivy/extra">
-	<info organisation="com.github.rjolly" module="scas_2.11.0-M6" revision="2.1" status="release" publication="20200301214246">
-		<description>
-		scas
-		</description>
+	<info organisation="com.github.rjolly" module="scas_2.11.0-M6" revision="2.1.1" status="release" publication="20200301214246">
+		<description homepage="http://github.com/rjolly/scas/"/>
 	</info>
 	<configurations>
 		<conf name="default" extends="compile"/>
@@ -23,7 +21,7 @@
 		<artifact name="scas_2.11.0-M6" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
 	</publications>
 	<dependencies>
-		<dependency org="com.github.rjolly" name="macros_2.11.0-M6" rev="2.1" conf="compile->default(compile)"/>
+		<dependency org="com.github.rjolly" name="macros_2.11.0-M6" rev="2.1.1" conf="compile->default(compile)"/>
 		<dependency org="org.scala-lang.modules" name="scala-xml_2.11.0-M6" rev="1.0.0-RC6" conf="compile->default(compile)"/>
 		<dependency org="org.scala-lang.modules" name="scala-parser-combinators_2.11.0-M6" rev="1.0.0-RC4" conf="compile->default(compile)"/>
 	</dependencies>
