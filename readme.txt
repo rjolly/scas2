@@ -4,10 +4,14 @@ Software needed:
 - scala 2.11 ( http://www.scala-lang.org/ )
 - sbt 0.13.18 ( http://github.com/harrah/xsbt/ )
 - jarlister ( http://github.com/rjolly/jarlister/ )
+- meditor ( http://github.com/rjolly/meditor/ )
 
+  edit $SCALA_HOME/lib/scala-compiler.jar!/META_INF/MANIFEST.MF to add Class-Path: scala-library.jar scala-reflect.jar
   jarlister $SCALA_HOME/lib/scala-library.jar
   jarlister $SCALA_HOME/lib/scala-xml.jar
   jarlister $SCALA_HOME/lib/scala-parser-combinators.jar
+  jarlister ../meditor/dist/meditor.jar
+  jarlister ../meditor/txt2xhtml/dist/txt2xhtml.jar
 
 To build scas:
   sbt package macros/package

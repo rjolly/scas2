@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" output="target/scala-2.11.0-M8/classes" path="src/main/scala"/>
-	<classpathentry kind="lib" path="lib/txt2xhtml.jar"/>
+	<classpathentry kind="lib" path="../meditor/dist/meditor.jar"/>
+	<classpathentry kind="lib" path="../meditor/txt2xhtml/dist/txt2xhtml.jar"/>
 	<classpathentry kind="con" path="org.scala-ide.sdt.launching.SCALA_CONTAINER"/>
 	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/macros"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
