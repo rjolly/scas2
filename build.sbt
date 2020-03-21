@@ -1,7 +1,7 @@
 val buildSettings = Defaults.coreDefaultSettings ++ Seq(
   organization := "com.github.rjolly",
   version := "2.1.1",
-  scalaVersion := "2.11.0-M8",
+  scalaVersion := "2.11.11",
   scalacOptions ++= Seq(
     "-language:higherKinds",
     "-language:implicitConversions",
@@ -21,7 +21,7 @@ lazy val core: Project = Project(
   "scas",
   file("."),
   settings = buildSettings ++ Seq(
-    libraryDependencies += (scalaVersion)(s => "org.scala-lang.modules" %% "scala-xml" % "1.0.0-RC7").value) ++ Seq(
-    libraryDependencies += (scalaVersion)(s => "org.scala-lang.modules" %% "scala-parser-combinators" % "1.0.0-RC5").value)
+    libraryDependencies += (scalaVersion)(s => "org.scala-lang.modules" %% "scala-xml" % "1.0.5").value) ++ Seq(
+    libraryDependencies += (scalaVersion)(s => "org.scala-lang.modules" %% "scala-parser-combinators" % "1.0.4").value)
 
 ) dependsOn(macros)
