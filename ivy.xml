@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ivy-module version="2.0" xmlns:e="http://ant.apache.org/ivy/extra">
-	<info organisation="com.github.rjolly" module="scas_2.11.0-M6" revision="2.1.1" status="release" publication="20200301214246">
+	<info organisation="com.github.rjolly" module="scas_2.11.0-M8" revision="2.1.1" status="release" publication="20200321214246">
 		<description homepage="http://github.com/rjolly/scas/"/>
 	</info>
 	<configurations>
@@ -15,14 +15,14 @@
 		<conf name="pom" visibility="public" description=""/>
 	</configurations>
 	<publications>
-		<artifact name="scas_2.11.0-M6" type="pom" ext="pom" conf="pom"/>
-		<artifact name="scas_2.11.0-M6" type="jar" ext="jar" conf="compile"/>
-		<artifact name="scas_2.11.0-M6" type="src" ext="jar" conf="sources" e:classifier="sources"/>
-		<artifact name="scas_2.11.0-M6" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
+		<artifact name="scas_2.11.0-M8" type="pom" ext="pom" conf="pom"/>
+		<artifact name="scas_2.11.0-M8" type="jar" ext="jar" conf="compile"/>
+		<artifact name="scas_2.11.0-M8" type="src" ext="jar" conf="sources" e:classifier="sources"/>
+		<artifact name="scas_2.11.0-M8" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
 	</publications>
 	<dependencies>
-		<dependency org="com.github.rjolly" name="macros_2.11.0-M6" rev="2.1.1" conf="compile->default(compile)"/>
-		<dependency org="org.scala-lang.modules" name="scala-xml_2.11.0-M6" rev="1.0.0-RC6" conf="compile->default(compile)"/>
-		<dependency org="org.scala-lang.modules" name="scala-parser-combinators_2.11.0-M6" rev="1.0.0-RC4" conf="compile->default(compile)"/>
+		<dependency org="com.github.rjolly" name="macros_2.11.0-M8" rev="2.1.1" conf="compile->default(compile)"/>
+		<dependency org="org.scala-lang.modules" name="scala-xml_2.11.0-M8" rev="1.0.0-RC7" conf="compile->default(compile)"/>
+		<dependency org="org.scala-lang.modules" name="scala-parser-combinators_2.11.0-M8" rev="1.0.0-RC5" conf="compile->default(compile)"/>
 	</dependencies>
 </ivy-module>

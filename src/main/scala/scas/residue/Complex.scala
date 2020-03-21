@@ -12,9 +12,9 @@ trait ComplexLike extends AlgebraicNumber[UnivariatePolynomial.Element[Rational,
   def sqrt(x: Complex) = { assert (x >< -1) ; generator(0) }
   def real(x: Complex) = coefficient(x, pp.one)
   def imag(x: Complex) = coefficient(x, pp.generator(0))
-  def isReal(x: Complex) = imag(x) >< zero
-  def isImag(x: Complex) = real(x) >< zero
-  def conjugate(x: Complex) = real(x) - sqrt(-1) * imag(x)
+  def isReal(x: Complex) = apply(imag(x)) >< zero
+  def isImag(x: Complex) = apply(real(x)) >< zero
+  def conjugate(x: Complex) = apply(real(x)) - sqrt(-1) * apply(imag(x))
   override def toString = "CC"
   override def toMathML = <complexes/>
 }

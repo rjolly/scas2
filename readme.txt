@@ -8,14 +8,14 @@ Software needed:
 
   edit $SCALA_HOME/lib/scala-compiler.jar!/META_INF/MANIFEST.MF to add Class-Path: scala-library.jar scala-reflect.jar
   jarlister $SCALA_HOME/lib/scala-library.jar
-  jarlister $SCALA_HOME/lib/scala-xml.jar
-  jarlister $SCALA_HOME/lib/scala-parser-combinators.jar
+  jarlister $SCALA_HOME/lib/scala-xml_2.11.0-M8-1.0.0-RC7.jar
+  jarlister $SCALA_HOME/lib/scala-parser-combinators_2.11.0-M8-1.0.0-RC5.jar
   jarlister ../meditor/dist/meditor.jar
   jarlister ../meditor/txt2xhtml/dist/txt2xhtml.jar
 
 To build scas:
   sbt package macros/package
-  jarlister target/scala-2.11.0-M6/scas_2.11.0-M6-2.1.1.jar
+  jarlister target/scala-2.11.0-M8/scas_2.11.0-M8-2.1.1.jar
 
 
 To run the test suite, add the bin directory to your path, give bin/scas execution privilege (unix), then:
