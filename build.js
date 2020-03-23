@@ -13,7 +13,6 @@ scaladoc("src/main/scala", "target/scala-2.11/javadoc", ["-language:experimental
 
 var name = "scas_2.11";
 jar("target/scala-2.11/" + name + ".jar", "target/scala-2.11/classes");
-jarlister("target/scala-2.11/" + name + ".jar")
 jar("target/scala-2.11/" + name + "-source.jar", "target/scala-2.11/sources");
 jar("target/scala-2.11/" + name + "-javadoc.jar", "target/scala-2.11/javadoc");
 cp("pom.xml", "target/scala-2.11/" + name + ".pom")
