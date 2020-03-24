@@ -13,7 +13,6 @@ scaladoc("src/main/scala", "target/scala-2.11.0-M6/javadoc", ["-language:experim
 
 var name = "scas_2.11.0-M6";
 jar("target/scala-2.11.0-M6/" + name + ".jar", "target/scala-2.11.0-M6/classes");
-jarlister("target/scala-2.11.0-M6/" + name + ".jar")
 jar("target/scala-2.11.0-M6/" + name + "-source.jar", "target/scala-2.11.0-M6/sources");
 jar("target/scala-2.11.0-M6/" + name + "-javadoc.jar", "target/scala-2.11.0-M6/javadoc");
 cp("pom.xml", "target/scala-2.11.0-M6/" + name + ".pom")
