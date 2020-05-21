@@ -3,7 +3,7 @@
 		xmlns:m="http://www.w3.org/1998/Math/MathML"
 		xmlns:x="http://www.w3.org/1999/xhtml"
 		xmlns:s="http://www.w3.org/2000/svg"
-                version='1.0'>
+		version='1.0'>
 
 <xsl:output method="text" indent="no" encoding="UTF-8"/>
 
@@ -105,14 +105,14 @@
 	<xsl:if test="1 &lt; $p"><xsl:text>)</xsl:text></xsl:if>
 </xsl:template>
 
-<xsl:template match="m:cn[@type='complex']">
+<xsl:template match="m:cn[@type='complex-cartesian']">
 	<xsl:param name="p" select="0"/>
 	<xsl:if test="0 &lt; $p"><xsl:text>(</xsl:text></xsl:if>
 	<xsl:value-of select="text()[1]"/>
 	<xsl:text>+</xsl:text>
 	<xsl:value-of select="text()[2]"/>
 	<xsl:text>*sqrt(-1)</xsl:text>
-	<xsl:if test="0 &lt; $p"><xsl:text>(</xsl:text></xsl:if>
+	<xsl:if test="0 &lt; $p"><xsl:text>)</xsl:text></xsl:if>
 </xsl:template>
 
 <xsl:template match="m:ci | m:mi">
@@ -283,7 +283,7 @@
 <xsl:template match="m:vector | m:matrix | m:matrixrow">
 	<xsl:text>{</xsl:text>
 	<xsl:for-each select="*">
-		<xsl:apply-templates/>
+		<xsl:apply-templates select="."/>
 		<xsl:if test="position() &lt; last()"><xsl:text>, </xsl:text></xsl:if>
 	</xsl:for-each>
 	<xsl:text>}</xsl:text>

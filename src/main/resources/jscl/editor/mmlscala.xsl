@@ -111,7 +111,7 @@
 	<xsl:text>)</xsl:text>
 </xsl:template>
 
-<xsl:template match="m:cn[@type='complex']">
+<xsl:template match="m:cn[@type='complex-cartesian']">
 	<xsl:text>Complex(</xsl:text>
 	<xsl:value-of select="text()[1]"/>
 	<xsl:text>, </xsl:text>
@@ -285,7 +285,7 @@
 <xsl:template match="m:vector">
 	<xsl:text>vector(</xsl:text>
 	<xsl:for-each select="*">
-		<xsl:apply-templates/>
+		<xsl:apply-templates select="."/>
 		<xsl:if test="position() &lt; last()"><xsl:text>, </xsl:text></xsl:if>
 	</xsl:for-each>
 	<xsl:text>)</xsl:text>
@@ -294,7 +294,7 @@
 <xsl:template match="m:matrix">
 	<xsl:text>matrix(</xsl:text>
 	<xsl:for-each select="*">
-		<xsl:apply-templates/>
+		<xsl:apply-templates select="."/>
 		<xsl:if test="position() &lt; last()"><xsl:text>, </xsl:text></xsl:if>
 	</xsl:for-each>
 	<xsl:text>)</xsl:text>
@@ -302,7 +302,7 @@
 
 <xsl:template match="m:matrixrow">
 	<xsl:for-each select="*">
-		<xsl:apply-templates/>
+		<xsl:apply-templates select="."/>
 		<xsl:if test="position() &lt; last()"><xsl:text>, </xsl:text></xsl:if>
 	</xsl:for-each>
 </xsl:template>
