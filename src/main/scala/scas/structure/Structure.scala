@@ -5,7 +5,7 @@ import scas.{MathObject, Variable}
 import spire.macros.Ops
 import scas.Implicits.infixOps
 
-trait Structure[@specialized(Int, Long, Double) T] extends Equiv[T] { outer =>
+trait Structure[@specialized(Int, Long, Double) T] extends Equiv[T] with MathObject { outer =>
   implicit def self: Structure[T]
   def convert(x: T) = x
   def apply(l: Long): T
