@@ -24,5 +24,6 @@
 		<dependency org="com.github.rjolly" name="macros_2.11.0-M6" rev="2.1.1" conf="compile->default(compile)"/>
 		<dependency org="org.scala-lang.modules" name="scala-xml_2.11.0-M6" rev="1.0.0-RC6" conf="compile->default(compile)"/>
 		<dependency org="org.scala-lang.modules" name="scala-parser-combinators_2.11.0-M6" rev="1.0.0-RC4" conf="compile->default(compile)"/>
+		<dependency org="net.sourceforge.jscl-meditor" name="rendering" rev="1.1" conf="compile->default(compile)"/>
 	</dependencies>
 </ivy-module>

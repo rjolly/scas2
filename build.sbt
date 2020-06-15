@@ -22,6 +22,7 @@ lazy val core: Project = Project(
   file("."),
   settings = buildSettings ++ Seq(
     libraryDependencies += (scalaVersion)(s => "org.scala-lang.modules" %% "scala-xml" % "1.0.0-RC6").value) ++ Seq(
-    libraryDependencies += (scalaVersion)(s => "org.scala-lang.modules" %% "scala-parser-combinators" % "1.0.0-RC4").value)
+    libraryDependencies += (scalaVersion)(s => "org.scala-lang.modules" %% "scala-parser-combinators" % "1.0.0-RC4").value) ++ Seq(
+    libraryDependencies += (scalaVersion)(s => "net.sourceforge.jscl-meditor" % "rendering" % "1.1").value)
 
 ) dependsOn(macros)
