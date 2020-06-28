@@ -2,6 +2,7 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 		xmlns:m="http://www.w3.org/1998/Math/MathML"
 		xmlns:x="http://www.w3.org/1999/xhtml"
+		xmlns:s="http://www.w3.org/2000/svg"
                 version='1.0'>
 
 <xsl:output method="text" indent="no" encoding="UTF-8"/>
@@ -9,8 +10,14 @@
 <xsl:strip-space elements="m:*"/>
 
 <xsl:template match="x:a">
-	<xsl:value-of select="@href"/>
+	<xsl:choose>
+		<xsl:when test="starts-with(@href,'mvn')"><xsl:value-of select="text()"/></xsl:when>
+		<xsl:when test="starts-with(@href,'mailto')"><xsl:value-of select="substring-after(@href, ':')"/></xsl:when>
+		<xsl:otherwise><xsl:value-of select="@href"/></xsl:otherwise>
+	</xsl:choose>
 </xsl:template>
+
+<xsl:template match="s:svg"/>
 
 <xsl:template match="m:math">
 	<xsl:apply-templates/>
@@ -105,7 +112,7 @@
 	<xsl:text>)</xsl:text>
 </xsl:template>
 
-<xsl:template match="m:cn[@type='complex']">
+<xsl:template match="m:cn[@type='complex-cartesian']">
 	<xsl:text>Complex(</xsl:text>
 	<xsl:value-of select="text()[1]"/>
 	<xsl:text>, </xsl:text>
@@ -279,7 +286,7 @@
 <xsl:template match="m:vector">
 	<xsl:text>vector(</xsl:text>
 	<xsl:for-each select="*">
-		<xsl:apply-templates/>
+		<xsl:apply-templates select="."/>
 		<xsl:if test="position() &lt; last()"><xsl:text>, </xsl:text></xsl:if>
 	</xsl:for-each>
 	<xsl:text>)</xsl:text>
@@ -288,7 +295,7 @@
 <xsl:template match="m:matrix">
 	<xsl:text>matrix(</xsl:text>
 	<xsl:for-each select="*">
-		<xsl:apply-templates/>
+		<xsl:apply-templates select="."/>
 		<xsl:if test="position() &lt; last()"><xsl:text>, </xsl:text></xsl:if>
 	</xsl:for-each>
 	<xsl:text>)</xsl:text>
@@ -296,7 +303,7 @@
 
 <xsl:template match="m:matrixrow">
 	<xsl:for-each select="*">
-		<xsl:apply-templates/>
+		<xsl:apply-templates select="."/>
 		<xsl:if test="position() &lt; last()"><xsl:text>, </xsl:text></xsl:if>
 	</xsl:for-each>
 </xsl:template>
