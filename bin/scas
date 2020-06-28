@@ -1,3 +1,5 @@
 #!/bin/sh
 SCAS_HOME=`dirname $0`/..
-java -Dscala.usejavacp=true -classpath $JAVA_HOME/lib/tools.jar:$SCALA_HOME/lib/scala-compiler.jar:$SCALA_HOME/lib/scala-reflect.jar:$SCALA_HOME/lib/scala-library.jar:$SCALA_HOME/lib/scala-xml.jar:$SCALA_HOME/lib/scala-parser-combinators.jar:$SCAS_HOME/macros/target/scala-2.11.0-M6/macros_2.11.0-M6-2.1.2.jar:$SCAS_HOME/target/scala-2.11.0-M6/scas_2.11.0-M6-2.1.2.jar com.sun.tools.script.shell.Main -l scala $*
+MEDITOR_HOME=$SCAS_HOME/../meditor/dist
+RENDERING_HOME=$MEDITOR_HOME/../rendering/dist
+java -Dscala.usejavacp=true -classpath $JAVA_HOME/lib/tools.jar:$SCALA_HOME/lib/scala-compiler.jar:$SCALA_HOME/lib/scala-reflect.jar:$SCALA_HOME/lib/scala-library.jar:$SCALA_HOME/lib/scala-xml.jar:$SCALA_HOME/lib/scala-parser-combinators.jar:$RENDERING_HOME/rendering.jar:$SCAS_HOME/macros/target/scala-2.11.0-M6/macros_2.11.0-M6-2.1.3.jar:$SCAS_HOME/target/scala-2.11.0-M6/scas_2.11.0-M6-2.1.3.jar com.sun.tools.script.shell.Main -l scala $*

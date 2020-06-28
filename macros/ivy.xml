@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ivy-module version="2.0" xmlns:e="http://ant.apache.org/ivy/extra">
-	<info organisation="com.github.rjolly" module="macros_2.11.0-M6" revision="2.1.2" status="release" publication="20200628105613">
+	<info organisation="com.github.rjolly" module="macros_2.11.0-M6" revision="2.1.3" status="release" publication="20200628150900">
 		<description homepage="http://github.com/rjolly/scas/"/>
 	</info>
 	<configurations>

@@ -3,6 +3,7 @@ Software needed:
 
 - scala 2.11 ( http://www.scala-lang.org/ )
 - sbt 0.13.18 ( http://github.com/harrah/xsbt/ )
+- rendering 1.1 ( http://jscl-meditor.sourceforge.net/ )
 
 To build scas:
   sbt package macros/package
