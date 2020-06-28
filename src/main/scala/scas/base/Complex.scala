@@ -38,7 +38,7 @@ trait ComplexLike extends StarRingWithUFD[Complex] with Field[Complex] {
   override def toString = "CC"
   def toMathML(x: Complex) = {
     if (x.isReal) infixOps(real(x)).toMathML
-    else <cn type="complex">{real(x)}<sep/>{imag(x)}</cn>
+    else <cn type="complex-cartesian">{real(x)}<sep/>{imag(x)}</cn>
   }
   def toMathML = <complexes/>
   def function(x: Complex, a: Variable) = Function(real(x))
