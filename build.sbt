@@ -1,6 +1,6 @@
 val buildSettings = Defaults.coreDefaultSettings ++ Seq(
   organization := "com.github.rjolly",
-  version := "2.1.2",
+  version := "2.1.3",
   scalaVersion := "2.11.12",
   scalacOptions ++= Seq(
     "-language:higherKinds",
@@ -23,6 +23,7 @@ lazy val core: Project = Project(
   settings = buildSettings ++ Seq(
     libraryDependencies += (scalaVersion)(s => "org.scala-lang.modules" %% "scala-xml" % "1.0.5").value) ++ Seq(
     libraryDependencies += (scalaVersion)(s => "org.scala-lang.modules" %% "scala-parser-combinators" % "1.0.4").value) ++ Seq(
-    libraryDependencies += (scalaVersion)(s => "net.sourceforge.jscl-meditor" % "rendering" % "1.1").value)
+    libraryDependencies += (scalaVersion)("org.scala-lang" % "scala-library" % _).value) ++ Seq(
+    libraryDependencies += ("net.sourceforge.jscl-meditor" % "rendering" % "1.1"))
 
 ) dependsOn(macros)

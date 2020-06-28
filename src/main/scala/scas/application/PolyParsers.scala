@@ -50,5 +50,4 @@ class PolyParsers extends RingParsers[Poly] {
       case (x, "-" ~ y) => convert(x) - convert(y)
     }
   }
-  override def obj: Parser[MathObject] = expr
 }

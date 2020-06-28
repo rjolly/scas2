@@ -1,11 +1,12 @@
 package scas.structure
 
 import scala.xml.Elem
-import scas.{MathObject, Variable}
+import jscl.editor.rendering.MathObject
+import scas.Variable
 import spire.macros.Ops
 import scas.Implicits.infixOps
 
-trait Structure[@specialized(Int, Long, Double) T] extends Equiv[T] with MathObject { outer =>
+trait Structure[@specialized(Int, Long, Double) T] extends Equiv[T] { outer =>
   implicit def self: Structure[T]
   def convert(x: T) = x
   def apply(l: Long): T
@@ -17,7 +18,7 @@ trait Structure[@specialized(Int, Long, Double) T] extends Equiv[T] with MathObj
   def function(x: T, a: Variable): Double => Double
   def render(value: T): MathObject = new MathObject {
     override def toString = toCode(value, 0)
-    def toMathML = outer.toMathML(value)
+    def toMathML = outer.toMathML(value).toString
   }
 }
 
@@ -27,7 +28,7 @@ object Structure {
   }
   object Implicits extends ExtraImplicits
 
-  trait Element[T <: Element[T]] extends MathObject { this: T =>
+  trait Element[T <: Element[T]] { this: T =>
     val factory: Structure[T]
     def ><(that: T) = factory.equiv(this, that)
     def <>(that: T) = factory.nequiv(this, that)

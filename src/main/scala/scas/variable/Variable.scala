@@ -1,11 +1,12 @@
 package scas.variable
 
+import scala.xml.Elem
 import scas.structure.Structure
 import scas.Implicits.infixOps
-import scas.MathObject
 import Variable.greek
 
-trait Variable extends MathObject {
+trait Variable {
+  def toMathML: Elem
   def mml(name: String) = greek.getOrElse(name, name)
 }
 
