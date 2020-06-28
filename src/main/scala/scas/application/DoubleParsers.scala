@@ -2,7 +2,7 @@ package scas.application
 
 import Parsers.{log => _, _}
 import scas.Double
-import Math.{sinh, cosh, tanh, sin, cos, tan, asin, acos, atan, exp, log, sqrt, pow, PI}
+import Math.{sinh, cosh, tanh, sin, cos, tan, asin, acos, atan, exp, log, pow, PI}
 
 object DoubleParsers extends OrderedUFDParsers[Double] {
   val structure = Double
@@ -10,7 +10,7 @@ object DoubleParsers extends OrderedUFDParsers[Double] {
   def constant: Parser[Double] = ("pi") ^^ {
     case "pi" => PI
   }
-  def function: Parser[Double] = ("sinh" | "cosh" | "tanh" | "sin" | "cos" | "tan" | "asin" | "acos" | "atan" | "exp" | "log" | "sqrt") ~ ("(" ~> expr) <~ ")" ^^ {
+  def function: Parser[Double] = ("sinh" | "cosh" | "tanh" | "sin" | "cos" | "tan" | "asin" | "acos" | "atan" | "exp" | "log") ~ ("(" ~> expr) <~ ")" ^^ {
     case "sinh" ~ x => sinh(x)
     case "cosh" ~ x => cosh(x)
     case "tanh" ~ x => tanh(x)
@@ -22,7 +22,6 @@ object DoubleParsers extends OrderedUFDParsers[Double] {
     case "atan" ~ x => atan(x)
     case "exp" ~ x => exp(x)
     case "log" ~ x => log(x)
-    case "sqrt" ~ x if (x >= 0) => sqrt(x)
   }
   def base: Parser[Double] = number | constant | function | "(" ~> expr <~ ")"
   override def unsignedFactor: Parser[Double] = base ~ ((("**" | "^") ~> factor)?) ^^ {
