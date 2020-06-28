@@ -1,7 +1,7 @@
 package scas.application
 
 import Parsers._
-import scas.MathObject
+import jscl.editor.rendering.MathObject
 import scas.structure.Structure
 import scas.Implicits.infixOps
 
