@@ -45,6 +45,11 @@
             <version>1.0.4</version>
         </dependency>
         <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library</artifactId>
+            <version>2.11.12</version>
+        </dependency>
+        <dependency>
             <groupId>net.sourceforge.jscl-meditor</groupId>
             <artifactId>rendering</artifactId>
             <version>1.1</version>

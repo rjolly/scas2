@@ -1,7 +1,7 @@
 val buildSettings = Defaults.coreDefaultSettings ++ Seq(
   organization := "com.github.rjolly",
   version := "2.1.2",
-  scalaVersion := "2.11.11",
+  scalaVersion := "2.11.12",
   scalacOptions ++= Seq(
     "-language:higherKinds",
     "-language:implicitConversions",
